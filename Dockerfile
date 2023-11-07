@@ -10,5 +10,6 @@ RUN gradle build --no-daemon
 FROM openjdk:17
 COPY --from=builder /app/build/libs/*-SNAPSHOT.jar /app.jar
 EXPOSE 8081
+VOLUME /app/src/main/resources/images
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 
